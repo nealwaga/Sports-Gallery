@@ -1,0 +1,27 @@
+{%extends 'all-art/base.html'%} {% block content %} {{block.super}}
+
+<div class="container">
+
+    <!-- Looping through art   -->
+    {% for art_item in art %}
+
+    <div class="row">
+        <!-- displaying Art-->
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <h2 class="text-center"> {{ art_item.category }} </h2>
+            <h2 class="text-center"> {{ art_item.caption }} </h2>
+            <h2 class="text-center"> {{ art_item.paparazzo }} </h2>
+            <h2 class="text-center"> {{ art_item.location}} </h2>
+            <h2 class="text-center"> {{ art_item.category}} </h2>
+
+        </div>
+        <!--Display news Article images  -->
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <img src="{{art_item.photo_image.url}}" class="img-responsive" alt="Image">
+        </div>
+    </div>
+
+    {% empty %} {% endfor %}
+
+</div>
+{% endblock %}

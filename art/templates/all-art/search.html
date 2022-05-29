@@ -1,0 +1,27 @@
+{%extends 'all-art/base.html'%} {% block content %}
+<div class="container">
+
+    <div class="row">
+        {% if pics%}
+        <h2>Found {{ pics|length }} of searched term {{message}}</h2>
+        {% else %}
+        <h2> Found no pictures for the search term {{message}}</h2>
+        {% endif %}
+
+    </div>
+
+    <div class="row">
+
+        {% if pics %} {% for pic in pics %}
+        <div class="col-sm-6 col-md-3">
+            <h1>{{pic.category}}</h1>
+            <h3>{{pic.pub_date}}</h3>
+            <h3>{{pic.location}}</h3>
+            <h3>{{pic.paparazzo}}</h3>
+            <img src="{{pic.photo_image.url}}" class="img-responsive" alt="Image Loading">
+
+        </div>
+        {% endfor %} {% endif %}
+    </div>
+</div>
+{% endblock %}
