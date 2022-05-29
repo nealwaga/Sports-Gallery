@@ -1,0 +1,79 @@
+{%extends 'all-art/base.html'%} {% load static %} {% load bootstrap3 %} {% block content %} {{block.super}}
+<div class="container-fluid1">
+    <div class="container-full banner content">
+        <div class="overlay">
+            <div class="row">
+                <div class="col-md-12 text-center">
+
+                    <h1 class="text-center intro" style="font-style: oblique;">WELCOME SPORTS GALLERY</h1> <br><br><br><br><br><br><br><br><br><br>
+                    <!-- <a href="#gallery" class="btn" name="button">Get Started</a> -->
+                    <a href="#gallery"><img src='https://raw.githubusercontent.com/jonnygovish/IP3/master/assets/mouse_click.png' class="img-fluid" id="mouse" style="transition: all 0.3s ease 0s;"></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="jumbotron" id="gallery">
+    <div class="row">
+        <div class="col-xs-12 home-page">
+            <div class="jumbotron">
+                <div class="row display-flex">
+                    <div class="col-xs-12">
+                        <h2><b>Art</b></h2>
+                        <br>
+                    </div>
+                    {% for art_item in art %}
+
+                    <div class="col-xs-12 col-sm-6 col-md-4 cards">
+                        <div class="card">
+                            <!--Trigger modal-->
+                            <a data-toggle="modal" data-target="#{{art_item.id}}"><img class="card-img-top" src="{{art_item.photo_image.url}}" alt="{{art_item.caption}}"></a>
+
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="{{art_item.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-xlg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h3 class="modal-title" id="exampleModalLongTitle">{{art_item.category}}</h3>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-md-8">
+                                                        <img src="{{art_item.photo_image.url}}" alt="{{art_item.category}}">
+                                                    </div>
+                                                    <div class="col-xs-12 col-md-4">
+                                                        <h4><b>{{art_item.category}}</b></h4>
+                                                        <h4 class="text-muted">{{art_item.location}}</h4>
+                                                        <p><b>"</b>{{art_item.caption}}<b>"</b></p><br>
+                                                        <h5><b>{{art_item.pub_date}}</b></h5>
+                                                        <input type="text" value="https://louvre1.herokuapp.com{{art_item.photo_image.url}}" id="{{art_item.id}}.url" class="offscreen" aria-hidden="true">
+                                                        <div class="{{art_item.photo_image.url}}"></div>
+                                                        <button class="btn btn-success btn-sm" onclick="copyLink('{{art_item.id}}.url')" data-dismiss="modal">Copy Link</button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <h4 class="card-title"> Photographer :{{art_item.paparazzo}}</h4>
+                                <h5 class="card-subtitle mb-2 text-muted"> Publish Date :{{art_item.pub_date}}</h5>
+                                <h5 class="card-subtitle mb-2 text-muted">Location :{{art_item.location}}</h5>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    {% empty %} {% endfor %}
+                </div>
+            </div>{% endblock %}
