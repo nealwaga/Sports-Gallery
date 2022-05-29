@@ -19,5 +19,6 @@ from django.urls import re_path, include
 
 urlpatterns = [
     re_path('admin/', admin.site.urls),
-    re_path(r'^art/',include('art.urls'))
+    #re_path(r'^art/',include('art.urls'))
+    re_path(r'^', include('art.urls'))
 ]
