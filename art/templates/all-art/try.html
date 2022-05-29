@@ -43,7 +43,6 @@
                             <p style=" font-size: 20px "><b>Photo taken on</b>: {{art_item.pub_date}}</p>
                         </div>
                         <div class="modal-footer">
-                            <input class="form-control input-lg" type="text" value="https://louvre1.herokuapp.com{{art_item.photo_image.url}}" id="{{art_item.id}}.url">
                             <button class="btn btn-success btn-sm" onclick="copyLink('{{art_item.id}}.url')" data-dismiss="modal">Copy Link</button>
                             <button type="btn btn-primary" style="background-color: rgb(235, 36, 36);" class="btn btn-secondary " data-dismiss="modal">Close</button>
 
