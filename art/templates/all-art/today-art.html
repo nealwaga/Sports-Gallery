@@ -53,7 +53,7 @@
                                                         <h4 class="text-muted">{{art_item.location}}</h4>
                                                         <p><b>"</b>{{art_item.caption}}<b>"</b></p><br>
                                                         <h5><b>{{art_item.pub_date}}</b></h5>
-                                                        <input type="text" value="https://louvre1.herokuapp.com{{art_item.photo_image.url}}" id="{{art_item.id}}.url" class="offscreen" aria-hidden="true">
+                                                        <input type="text" value="{{art_item.photo_image.url}}" id="{{art_item.id}}.url" class="offscreen" aria-hidden="true">
                                                         <div class="{{art_item.photo_image.url}}"></div>
                                                         <button class="btn btn-success btn-sm" onclick="copyLink('{{art_item.id}}.url')" data-dismiss="modal">Copy Link</button>
 
